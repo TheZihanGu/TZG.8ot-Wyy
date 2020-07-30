@@ -4,6 +4,7 @@ var result = new Vue({
         message: '生不出人，我很抱歉。'
     }
 })
+new ClipboardJS('.copy');
 function getResult() {
     var httpRequest = new XMLHttpRequest();
     httpRequest.open('GET', "https://api.tzg6.com/api/wyy", true);
@@ -15,4 +16,9 @@ function getResult() {
             result.message = json[0].text
         }
     }
+}
+function onCopy() {
+    mdui.snackbar({
+        message: '复制成功!'
+      });
 }
